@@ -1,0 +1,236 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;600&display=swap");
+
+@font-face {
+  font-family: "The Slug and Lion";
+  src: url("/fonts/TThe-Slug-and-Lion.ttf.eot") format("eot"),
+    url("/fonts/The-Slug-and-Lion.ttf.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Estilos generales */
+body,
+html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos reutilizables */
+.fullHeight {
+  height: 100vh;
+}
+
+
+.backgroundContainer {
+  overflow: hidden;
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: row; /* Alinea los elementos al inicio verticalmente */
+  justify-content: flex-start; /* Alinea los elementos al inicio horizontalmente */
+  height: 100vh; /* Ajusta la altura al 100% del viewport */
+  align-items: flex-start;; /* Alinea los items al inicio (arriba) */
+  gap: 20px; /* Añade un espacio entre el menú y ContentDisplay */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1; /* Mantiene el fondo detrás de todo el contenido */
+}
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  transition: opacity 0.5s ease-in-out;
+}
+.desaturatedDarkened {
+  filter: saturate(0%) brightness(50%);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+/* Estilos para el contenedor principal */
+.mainContainer {
+  display: flex;
+  flex-direction: row; /* Elementos lado a lado */
+  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+  justify-content: flex-start; /* Alinea horizontalmente al inicio */
+  height: 100vh; /* Altura completa de la ventana */
+  gap: 20px; /* Espacio entre menú y contenido */
+}
+
+
+.menuContainer {
+  /* position: fixed;*/
+
+  bottom: 20px;
+  width: 300px; /* Ajustado de 200px a 300px para hacer el menú más ancho */
+  min-width: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px 30px; /* Ajusta el padding si es necesario para adaptarse al nuevo ancho */
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  font-family: "Lato", sans-serif;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: calc(100% - 40px);
+}
+
+.logoContainer {
+  color: #e7e7e7; /* Un gris más oscuro. Ajusta el código de color según necesites */
+  font-size: 32px; /* Reduce el tamaño de la fuente. Ajusta según necesites */
+  margin-top: 0; /* Reduce el margen superior para que esté más cerca del borde superior del menú */
+  margin-bottom: 10px; /* Ajusta según necesites para el espaciado después del título */
+  font-weight: 100;
+  font-family: "The Slug and Lion", sans-serif;
+  cursor: pointer;
+}
+.javi {
+  color: #b1b1b1;
+}
+.clavero {
+  color: #8a8a8a;
+}
+.menuLink,
+.subMenuItem {
+  display: block;
+  cursor: pointer;
+  color: white; /* Ajusta según tu diseño */
+  padding: 5px 0; /* Ajusta según tu diseño */
+  text-decoration: none;
+}
+
+.subMenuContainer {
+  overflow: hidden;
+  transition: max-height 0.5s ease-out; /* Ajusta la transición según prefieras */
+  margin-left: 20px;
+  padding-left: 10px; /* Ajusta para mayor indentación */
+}
+
+.subMenuItem {
+  /* Estilos para cada ítem del submenú */
+  display: block; /* Asegura que cada ítem se muestre en su propia línea */
+  padding: 0.5rem 0; /* Ajuste de padding para los submenús */
+}
+
+
+
+
+.socialIconsContainer {
+  margin-top: auto; /* Esto empuja el contenedor hacia abajo */
+  padding-top: 20px;
+  border-top: 1px solid #ffffff; /* Un divisor opcional */
+}
+
+.socialIcon {
+  margin-right: 10px; /* Espacio entre íconos */
+  color: white !important; /* Establece el color de los íconos a blanco, la propiedad !important asegura que este estilo tenga prioridad */
+  text-decoration: none; /* Remueve el subrayado del enlace */
+  font-family: "Font Awesome 6 Free";
+}
+
+.copyright {
+  color: white;
+  margin-top: 20px; /* Espacio entre íconos y texto */
+  font-size: 14px;
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.tooltip img {
+  width: 20px;
+  height: 20px;
+}
+
+.tooltip {
+  display: inline-flex;
+  white-space: nowrap;
+  gap: 8px;
+  padding: 4px;
+  background-color: #000000;
+  border: 1px solid #ffffff;
+  border-radius: 4px;
+  margin-left: 8px; /* Ajusta según necesites para el espaciado */
+  vertical-align: middle; /* Asegura que el tooltip se alinee en el medio verticalmente con el texto */
+}
+
+
+
+
+.displayContent {
+  flex-grow: 1; /* Permite que ContentDisplay ocupe el espacio restante */
+  overflow-y: auto; /* Permite desplazamiento si el contenido excede la altura */
+  background-color: rgba(0, 0, 0, 0.5);
+  height: calc(100% - 40px);
+}
+.displayContent {
+  flex-grow: 1; /* Hace que ocupe el espacio disponible */
+  margin-top: 20px; /* Alinea el margen superior con el de menuContainer */
+  transition: opacity 0.3s ease-out;
+  opacity: 1;
+  margin-bottom: 20px; /* Alinea el margen inferior con el de menuContainer */
+  overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede la altura */
+  padding-right: 20px; /* Añade algo de padding a la derecha */
+}
+.displayContent {
+  /*height: 100%; /* Ajusta según tus necesidades */
+  overflow-x: auto; /* Permite el desplazamiento horizontal si el contenido es demasiado ancho */
+  overflow-y: hidden; /* Evita el desplazamiento vertical */
+  white-space: nowrap; /* Evita que los elementos hijos (como imágenes) pasen a una nueva línea */
+}
+
+.displayContent {
+  display: flex; /* Usa flex para un mejor control del layout */
+  flex-direction: column; /* Organiza los hijos en una columna */
+  /* height: 100vh; /* O define el alto deseado */
+  overflow-x: auto; /* Permite desplazamiento horizontal */
+  overflow-y: hidden; /* Oculta el desbordamiento vertical */
+}
+
+.displayContent > div {
+  display: flex; /* Esto asegura que los elementos internos se alineen en fila */
+  flex-direction: row; /* Alinea las imágenes horizontalmente */
+  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
+  height: 100%; /* Ocupa el 100% del alto de .displayContent */
+  white-space: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
+}
+.displayContent > div > img {
+  max-height: 100%; /* Asegura que las imágenes no excedan el alto del contenedor */
+  width: auto; /* Mantiene la proporción de las imágenes */
+  display: inline-block; /* Muestra las imágenes en línea */
+  vertical-align: top; /* Alinea las imágenes en la parte superior si tienen diferentes alturas */
+}
+
+.displayContent > div > .contentText {
+  padding: 20px;
+  color: white;
+}
+
+.displayContent.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
