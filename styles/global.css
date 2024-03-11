@@ -14,6 +14,7 @@ html {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
+  width: auto;
 }
 
 /* Estilos reutilizables */
@@ -51,7 +52,7 @@ html {
   transition: opacity 0.5s ease-in-out;
 }
 .desaturatedDarkened {
-  filter: saturate(0%) brightness(50%);
+  filter: saturate(0%) brightness(15%);
   background-color: rgba(0, 0, 0, 0.5);
 }
 /* Estilos para el contenedor principal */
@@ -180,57 +181,42 @@ html {
 
 
 
+
+
+
+
+
 .displayContent {
-  flex-grow: 1; /* Permite que ContentDisplay ocupe el espacio restante */
-  overflow-y: auto; /* Permite desplazamiento si el contenido excede la altura */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
   background-color: rgba(0, 0, 0, 0.5);
+  border: 1px solid #ffffff;
   height: calc(100% - 40px);
-}
-.displayContent {
-  flex-grow: 1; /* Hace que ocupe el espacio disponible */
-  margin-top: 20px; /* Alinea el margen superior con el de menuContainer */
-  transition: opacity 0.3s ease-out;
-  opacity: 1;
-  margin-bottom: 20px; /* Alinea el margen inferior con el de menuContainer */
-  overflow-y: auto; /* Permite desplazamiento vertical si el contenido excede la altura */
-  padding-right: 20px; /* Añade algo de padding a la derecha */
-}
-.displayContent {
-  /*height: 100%; /* Ajusta según tus necesidades */
-  overflow-x: auto; /* Permite el desplazamiento horizontal si el contenido es demasiado ancho */
-  overflow-y: hidden; /* Evita el desplazamiento vertical */
-  white-space: nowrap; /* Evita que los elementos hijos (como imágenes) pasen a una nueva línea */
-}
-
-.displayContent {
-  display: flex; /* Usa flex para un mejor control del layout */
-  flex-direction: column; /* Organiza los hijos en una columna */
-  /* height: 100vh; /* O define el alto deseado */
-  overflow-x: auto; /* Permite desplazamiento horizontal */
-  overflow-y: hidden; /* Oculta el desbordamiento vertical */
-}
-
-.displayContent > div {
-  display: flex; /* Esto asegura que los elementos internos se alineen en fila */
-  flex-direction: row; /* Alinea las imágenes horizontalmente */
-  align-items: flex-start; /* Alinea los elementos al inicio verticalmente */
-  height: 100%; /* Ocupa el 100% del alto de .displayContent */
-  white-space: nowrap; /* Evita que los elementos se envuelvan a la siguiente línea */
-}
-.displayContent > div > img {
-  max-height: 100%; /* Asegura que las imágenes no excedan el alto del contenedor */
-  width: auto; /* Mantiene la proporción de las imágenes */
-  display: inline-block; /* Muestra las imágenes en línea */
-  vertical-align: top; /* Alinea las imágenes en la parte superior si tienen diferentes alturas */
-}
-
-.displayContent > div > .contentText {
-  padding: 20px;
-  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  overflow-x: visible; /* Permite que el contenido exceda el ancho sin mostrar scroll */
+  overflow-y: visible; /* Se mantiene para evitar el desplazamiento vertical */
+  white-space: nowrap; /* Asegura que los elementos en línea no se envuelvan */
 }
 
 .displayContent.hidden {
   opacity: 0;
   pointer-events: none;
 }
+
+.imageContainer > img {
+  width: auto; /* Mantiene la proporción de las imágenes */
+  display: inline-block; /* Muestra las imágenes en línea */
+  vertical-align: top; /* Alinea las imágenes en la parte superior si tienen diferentes alturas */
+  max-height: calc(100% - 40px);
+}
+
+.displayContent .contentText {
+  padding: 20px;
+  color: white;
+  border: 1px solid #ffffff; /* Borde fino blanco */
+
+}
+
 

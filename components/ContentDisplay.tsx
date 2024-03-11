@@ -17,9 +17,8 @@ const ContentDisplay: React.FC<ContentDisplayProps> = ({ content, isContentVisib
 
 return (
     content !== "" && (
-      <div className={`displayContent ${!isContentVisible ? 'hidden' : ''}`}>
-        <div dangerouslySetInnerHTML={{ __html: content }} />
-      </div>
+      <div className={`displayContent ${!isContentVisible ? 'hidden' : ''}`} dangerouslySetInnerHTML={{ __html: content }} />
+    
     )
   );
 };
